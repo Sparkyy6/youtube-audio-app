@@ -1,0 +1,195 @@
+:root {
+  --bg: #0b0f1a;
+  --bg-soft: #131b2b;
+  --panel: #151e31;
+  --panel-strong: #1b2742;
+  --text: #f5f7ff;
+  --muted: #9fb0d1;
+  --accent: #3ee4ff;
+  --accent-warm: #ff9f68;
+  --glow: 0 0 24px rgba(62, 228, 255, 0.3);
+  --radius: 24px;
+  --shadow: 0 30px 80px rgba(10, 14, 25, 0.6);
+  --font-main: "Space Grotesk", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  color: var(--text);
+  background: radial-gradient(circle at top, #1c2d4f 0%, #0b0f1a 60%);
+  min-height: 100vh;
+}
+
+.scene {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  box-shadow: var(--glow);
+}
+
+.brand-name {
+  font-weight: 700;
+  margin: 0;
+}
+
+.brand-sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.ghost-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  cursor: pointer;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 24px;
+}
+
+.search-card,
+.player-card {
+  background: linear-gradient(180deg, var(--panel), var(--panel-strong));
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.search-card h1 {
+  margin-top: 0;
+  font-size: 2.2rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.input-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+input[type="url"] {
+  flex: 1;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-soft);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.primary {
+  padding: 14px 22px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  color: #07121f;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--glow);
+}
+
+.chip-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.player-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.artwork {
+  height: 220px;
+  border-radius: 18px;
+  background: radial-gradient(circle at top, #25385f, #0c1322);
+  box-shadow: inset 0 0 40px rgba(62, 228, 255, 0.25);
+}
+
+.track-meta {
+  display: grid;
+  gap: 4px;
+}
+
+.track-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.track-artist {
+  margin: 0;
+  color: var(--muted);
+}
+
+audio {
+  width: 100%;
+}
+
+.status {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.footer {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+body.glow {
+  --glow: 0 0 40px rgba(62, 228, 255, 0.5);
+}

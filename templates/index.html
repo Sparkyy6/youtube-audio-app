@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube Audio Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="scene">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <div>
+            <p class="brand-name">Audio Drift</p>
+            <p class="brand-sub">YouTube audio only</p>
+          </div>
+        </div>
+        <button class="ghost-button" id="toggleTheme" type="button">
+          Toggle Glow
+        </button>
+      </header>
+
+      <main class="layout">
+        <section class="search-card">
+          <h1>Drop a YouTube link, play the audio.</h1>
+          <p class="muted">
+            Fast extraction with yt-dlp. No file downloads, just streaming.
+          </p>
+          <div class="input-row">
+            <input
+              id="urlInput"
+              type="url"
+              placeholder="https://www.youtube.com/watch?v=..."
+              autocomplete="off"
+            />
+            <button id="resolveBtn" class="primary" type="button">
+              Resolve
+            </button>
+          </div>
+          <div class="chip-row">
+            <span class="chip">Direct stream</span>
+            <span class="chip">Proxy fallback</span>
+            <span class="chip">Audio-only</span>
+          </div>
+        </section>
+
+        <section class="player-card">
+          <div class="artwork" id="artwork"></div>
+          <div class="track-meta">
+            <p class="track-title" id="trackTitle">Waiting for a link...</p>
+            <p class="track-artist" id="trackArtist">
+              Paste a URL to resolve the audio stream.
+            </p>
+          </div>
+          <audio id="audio" controls preload="none"></audio>
+          <div class="status" id="status">Idle</div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Built for a 1-hour vibe-coding session.</p>
+      </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
