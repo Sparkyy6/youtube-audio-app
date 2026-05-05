@@ -16,6 +16,7 @@ def index():
 
 
 def _extract_audio(url: str) -> dict:
+    cookies_from_browser = os.environ.get("YTDLP_COOKIES_FROM_BROWSER")
     ydl_opts = {
         "format": "bestaudio/best",
         "noplaylist": True,
@@ -23,6 +24,8 @@ def _extract_audio(url: str) -> dict:
         "no_warnings": True,
         "skip_download": True,
     }
+    if cookies_from_browser:
+        ydl_opts["cookiesfrombrowser"] = cookies_from_browser
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=False)
 
